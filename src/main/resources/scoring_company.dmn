@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_1oxks8w" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.7.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.18.0">
+  <decision id="Scoring_decision_id" name="Scoring decision ">
+    <decisionTable id="DecisionTable_0t7tzni">
+      <input id="Input_1" label="INN" biodi:width="192.99057006835938" camunda:inputVariable="inn">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0wj6772" label="Region" camunda:inputVariable="region">
+        <inputExpression id="LiteralExpression_1osym6k" typeRef="integer">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1rw2sxb" label="Capital" camunda:inputVariable="capital">
+        <inputExpression id="LiteralExpression_0duc6ut" typeRef="long">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Result" name="result" typeRef="string" />
+      <rule id="DecisionRule_1db487x">
+        <inputEntry id="UnaryTests_1i5ffq2">
+          <text>string length(inn) != 12 and not (starts with(inn, "9909"))</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u3l5qn">
+          <text>region != 24</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jk3twg">
+          <text>&gt;= 5000000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08ky5z3">
+          <text>"not detected"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Scoring_decision_id">
+        <dc:Bounds height="80" width="180" x="220" y="170" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

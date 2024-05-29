@@ -1,0 +1,33 @@
+spring:
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:./camunda-h2-database
+    username: admin
+    password: admin
+    driver-class-name: org.h2.Driver
+
+camunda:
+  bpm:
+    generic-properties:
+      properties:
+        historyTimeToLive: P1D
+    admin-user:
+      id: demo
+      password: demo
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    jdbc-type-for-null: "NULL"
+    use-generated-keys: true
+
+springdoc:
+  api-docs:
+    path: /company-scoring-docs
+  swagger-ui:
+    path: /swagger-ui
