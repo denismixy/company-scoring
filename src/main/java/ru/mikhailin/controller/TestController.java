@@ -50,7 +50,7 @@ public class TestController {
             scoringCompanyResponse.setResult(false);
             ScoringOrder scoringOrder = objectMapper.convertValue(scoringCompanyRequest, ScoringOrder.class);
             scoringOrderRepository.insertScoringOrder(scoringOrder);
-            log.info(scoringOrderRepository.getOrders().toString());
+            log.info("[INSERT] Order ID: " + scoringOrder.getId());
         } else {
             scoringCompanyResponse.setResult(true);
         }
